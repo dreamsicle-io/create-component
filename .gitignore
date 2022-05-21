@@ -1,5 +1,5 @@
 # Dependencies
 node_modules/
 
-examples/**/*
-!examples/**/_Template/
+examples/components/*
+!examples/components/_Template/
