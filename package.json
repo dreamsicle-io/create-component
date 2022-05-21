@@ -18,7 +18,8 @@
 	},
 	"scripts": {
 		"deploy": "npm publish --access public",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"create-component": "node index.js -p examples/components"
 	},
 	"dependencies": {
 		"chalk": "~5.0.0",
