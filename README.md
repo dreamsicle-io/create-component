@@ -1,4 +1,4 @@
-# Create WP Theme
+# Create Component
 
 `create-component` is a node command line tool that will scaffold a new multi-file component directory with a project's opinionated component structure ideally containing just the right amount of starter code to get a developer started building.
 
