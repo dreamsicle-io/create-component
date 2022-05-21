@@ -1,6 +1,6 @@
 # Dependencies
 node_modules/
 
-# Examples
+# Examples that are not a `_Template` test directory.
 examples/
 !*/examples/**/_Template/*
