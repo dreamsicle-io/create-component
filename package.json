@@ -10,9 +10,9 @@
 		"url": "git@github.com:dreamsicle-io/create-component.git"
 	},
 	"bugs": {
-		"url": "https://github.com/dreamsicle-io/create-wp-theme/issues"
+		"url": "https://github.com/dreamsicle-io/create-component/issues"
 	},
-	"homepage": "https://github.com/dreamsicle-io/create-wp-theme#readme",
+	"homepage": "https://github.com/dreamsicle-io/create-component#readme",
 	"bin": {
 		"create-component": "index.js"
 	},
