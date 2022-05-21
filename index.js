@@ -72,8 +72,7 @@ function create() {
   // Loop over the files array inorder to rename and replace
   // the placeholder text in each one.
   files.forEach((file) => {
-		// set up individual file paths and perform file name
-		// replacements to prepare dest file path.
+		// set up individual file paths and perform file name replacements.
 		const fileSrcDir = path.dirname(file);
 		const fileSrcName = path.basename(file);
 		const fileDestName = fileSrcName
