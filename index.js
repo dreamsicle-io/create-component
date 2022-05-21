@@ -8,7 +8,7 @@ import { pascalCase, paramCase } from 'change-case';
 import chalk from 'chalk';
 
 // Read the package.json file.
-const packageData = fs.readJsonSync('./package.json');
+const packageData = fs.readJsonSync(path.join(process.cwd(), 'package.json'));
 
 // Initialize the commander program.
 const program = new Command();
@@ -17,12 +17,11 @@ const args = {
   name: '',
 };
 
-// Initialize commander program.
+// Sets up the commander program.
 program
   .version(packageData.version)
   .name('npx @dreamsicle.io/create-component')
   .description('Create a component structure in the appropriate directory.')
-  .usage('-p src/components MyComponent')
   .option('-p, --path <path>', 'The relative path where the template to be used lives.')
   .arguments('<name>')
   .action((name) => (args.name = pascalCase(name)));
@@ -40,13 +39,26 @@ if (!fs.existsSync(path.join(options.path, '_Template'))) {
 const src = path.join(options.path, '_Template');
 const dest = path.join(options.path, args.name);
 
-// declare file structure.
-const files = ['_Template.tsx', '_Template.scss', '_Template.stories.tsx', '_Template.test.tsx'];
-
 // Check if the component already exists and exit if necessary.
 if (fs.existsSync(dest)) {
   console.error(chalk.red('Error: There is already a component named "%s"\n'), args.name);
   program.help();
+}
+
+function walkDirectories(dirPath) {
+	const results = [];
+	const dirFiles = fs.readdirSync(dirPath);
+	dirFiles.forEach(function(file) {
+			const filePath = path.join(dirPath, file);
+			const stat = fs.statSync(filePath);
+			if (stat.isDirectory()) { 
+					const nestedFiles = walkDirectories(filePath);
+					results.push(...nestedFiles);
+			} else { 
+					results.push(filePath);
+			}
+	});
+	return results;
 }
 
 function create() {
@@ -55,11 +67,14 @@ function create() {
   // Copy the template directory.
   fs.copySync(src, dest);
   console.info(chalk.dim('Directory built: "%s"\n'), dest);
+	// Get list of all file paths
+	const files = walkDirectories(dest);
   // Loop over the files array inorder to rename and replace
   // the placeholder text in each one.
   files.forEach((file) => {
-    const fileSrc = path.join(dest, file);
-    const fileDest = path.join(dest, file.replace(/_Template/g, args.name));
+		const fileName = path.basename(file);
+    const fileSrc = path.join(dest, fileName);
+    const fileDest = path.join(dest, fileName.replace(/_Template/g, args.name));
     // Ensure to Check if the file exists in this template.
     if (fs.existsSync(fileSrc)) {
       // rename the file.
