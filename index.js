@@ -17,7 +17,7 @@ const args = {
   name: '',
 };
 
-// Sets up the commander program.
+// Set up the commander program.
 program
   .version(packageData.version)
   .name('npx @dreamsicle.io/create-component')
@@ -72,13 +72,18 @@ function create() {
   // Loop over the files array inorder to rename and replace
   // the placeholder text in each one.
   files.forEach((file) => {
-		const fileName = path.basename(file);
-    const fileSrc = path.join(dest, fileName);
-    const fileDest = path.join(dest, fileName.replace(/_Template/g, args.name));
+		// set up individual file paths and perform file name
+		// replacements to prepare dest file path.
+		const fileSrcDir = path.dirname(file);
+		const fileSrcName = path.basename(file);
+		const fileDestName = fileSrcName
+			.replace(/_Template/g, args.name)
+			.replace(/_template/g, paramCase(args.name));
+    const fileDest = path.join(fileSrcDir, fileDestName);
     // Ensure to Check if the file exists in this template.
-    if (fs.existsSync(fileSrc)) {
+    if (fs.existsSync(file)) {
       // rename the file.
-      fs.renameSync(fileSrc, fileDest);
+      fs.renameSync(file, fileDest);
       // Get the content of the file and replace the
       // placeholder text.
       let content = fs
