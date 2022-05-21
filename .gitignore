@@ -3,4 +3,4 @@ node_modules/
 
 # Examples that are not a `_Template` test directory.
 examples/
-!*/examples/*/_Template/*
+!*/examples/*/_Template/
