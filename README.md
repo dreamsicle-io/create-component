@@ -97,7 +97,7 @@ File built: "src\components\MyComponent\MyComponent.test.tsx"
 Created component "MyComponent"
 ```
 
-> **Note:** The above is what would be created and logged given a `src/components/_Template` directory with the following files: `MyComponent.tsx`, `MyComponent.scss`, `MyComponent.stories.tsx`, and `MyComponent.test.tsx`.
+> **Note:** The above is what would be created and logged given a `src/components/_Template` directory with the following files: `_Template_.tsx`, `_Template_.scss`, `_Template_.stories.tsx`, and `_Template_.test.tsx`.
 
 ## Help 
 
