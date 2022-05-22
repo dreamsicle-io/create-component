@@ -62,12 +62,6 @@ npm run create-partal MyPartial
 npm run create-page MyPage
 ```
 
-### 3. Run the `create-component` command
-
-```shell
-npx @dreamsicle.io/create-component -p src/components MyComponent
-```
-
 > **Note:** Change `MyComponent` to the desired component name.
 
 ## Logging
