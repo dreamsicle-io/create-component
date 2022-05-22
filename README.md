@@ -30,14 +30,16 @@ The scripts `name` arg can be passed through to the script when running it throu
 
 **Setting up scripts is simple ― consider an application with the following structure:**
 
-- root
-	- src
-		- components
-			- _Template
-		- partials
-			- _Template
-		- pages
-			- _Template
+```
+/root
+―――― /src
+―――――――― /components
+―――――――――――― /_Template
+―――――――― /partials
+―――――――――――― /_Template
+―――――――― /pages
+―――――――――――― /_Template
+```
 
 **A great way to set up the app in this case would be to add the following to the `scripts` key on the project root's `package.json`.**
 
@@ -84,17 +86,17 @@ The following table documents which text nodes will be operated on when the `_Te
 
 The tool will log its progress and errors in the console, exiting on completion and fatal errors.
 
-```shell
+```
 ⚡ Creating component: MyComponent
 
-📁 Directory cloned: examples/components/MyComponent
+📁 Directory cloned: examples\components\MyComponent
 
-🔨 File built: examples/components/MyComponent/utils/my-component-utils.ts
-🔨 File built: examples/components/MyComponent/utils/MyComponent.utils.ts
-🔨 File built: examples/components/MyComponent/MyComponent.scss
-🔨 File built: examples/components/MyComponent/MyComponent.stories.tsx
-🔨 File built: examples/components/MyComponent/MyComponent.test.tsx
-🔨 File built: examples/components/MyComponent/MyComponent.tsx
+🔨 File built: examples\components\MyComponent\utils\my-component-utils.ts
+🔨 File built: examples\components\MyComponent\utils\MyComponent.utils.ts
+🔨 File built: examples\components\MyComponent\MyComponent.scss
+🔨 File built: examples\components\MyComponent\MyComponent.stories.tsx
+🔨 File built: examples\components\MyComponent\MyComponent.test.tsx
+🔨 File built: examples\components\MyComponent\MyComponent.tsx
 
 🎉 Created component: MyComponent
 ```
@@ -111,7 +113,7 @@ npx @dreamsicle.io/create-component --help
 
 **The above would ouput the following help information:**
 
-```shell
+```
 Usage: npx @dreamsicle.io/create-component [options] <name>  
 
 Create a React component in the appropriate components directory.
