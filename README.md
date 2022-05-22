@@ -10,7 +10,7 @@ From the project directory root, fire the `create-component` command, pointing t
 npx @dreamsicle.io/create-component [options] <name>
 ```
 
-## Getting Started
+## Getting started
 
 All that is necessary to start using the tool is a component name `name`, which corresponds to a pascal-cased string that will serve as the component name, and a relative `--path`/`-p` that contains a `_Template` directory.
 
@@ -22,7 +22,7 @@ While it is possible to run this script without installing it by using `npx`, it
 npm install --save-dev @dreamsicle.io/create-component
 ```
 
-### 2. Set up scripts on `package.json`
+### 2. Set up scripts
 
 While it is possible to run this script directly, it is recommended that you add scripts to your `package.json` file in order to make using this tool easier and faster. The app structure isn't likely to change in any given project often, so this will help in making the usage more consistent.
 
