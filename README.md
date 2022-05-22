@@ -1,6 +1,6 @@
 # Create Component
 
-`create-component` is a node command line tool that will scaffold a new multi-file component directory with a project's opinionated component structure ideally containing just the right amount of starter code to get a developer started building.
+`create-component` is a node command line tool that will scaffold a new multi-file component directory with a project's opinionated component structure, ideally containing just the right amount of starter code to get a developer started building.
 
 ## Usage
 
@@ -14,7 +14,58 @@ npx @dreamsicle.io/create-component [options] <name>
 
 All that is necessary to start using the tool is a component name `name`, which corresponds to a pascal-cased string that will serve as the component name, and a relative `--path`/`-p` that contains a `_Template` directory.
 
-### 1. Run the `create-component` command
+### 1. Install `@dreamsicle.io/create-component`
+
+```shell
+npm install --save-dev @dreamsicle.io/create-component
+```
+
+### 2. Create a `_Template` directory
+
+The `_Template` directory is what will be cloned and manipulated inorder to create the component structure.
+
+### 3. Set up scripts on `package.json`
+
+While it is possible to run this script without this step, it is recommended that you add scripts to your `package.json` file in order to make using this tool easier and faster. The app structure isn't likely to change in any given project often, so this will help in making the usage more consistent.
+
+The scripts `name` arg can be passed through to the script when running it through `npm`, therefore all that is recommended is to set up a script corresponding to each path that contains a `_Template` directory.
+
+**Setting up scripts is simple ― consider an application with the following structure:**
+
+```
+root
+― src
+―― components
+―― partials
+―― pages
+
+```
+
+**A great way to set up the app in this case would be to add the following to the `scripts` key on the project root's `package.json`.**
+
+```json
+{
+	"scripts": {
+		"create-component": "create-component -p src/components",
+		"create-partial": "create-component -p src/partials",
+		"create-page": "create-component -p src/pages"
+	}
+}
+```
+
+**Now, all that is needed is to run the script on the command line, followed by the new component's name:**
+
+```shell
+npm run create-component MyComponent
+```
+```shell
+npm run create-partal MyPartial
+```
+```shell
+npm run create-page MyPage
+```
+
+### 3. Run the `create-component` command
 
 ```shell
 npx @dreamsicle.io/create-component -p src/components MyComponent
