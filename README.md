@@ -1,5 +1,8 @@
 # Create Component
 
+[![GitHub issues](https://img.shields.io/github/issues/dreamsicle-io/create-component?style=flat-square)](https://github.com/dreamsicle-io/create-component/issues)
+[![GitHub license](https://img.shields.io/github/license/dreamsicle-io/create-component?style=flat-square)](https://github.com/dreamsicle-io/create-component/blob/main/LICENSE)
+
 `create-component` is a node command line tool that will scaffold a new multi-file component directory with a project's opinionated component structure, ideally containing just the right amount of starter code to get a developer started building.
 
 ## Usage
