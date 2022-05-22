@@ -1,8 +1,5 @@
 # Create Component
 
-[![GitHub issues](https://img.shields.io/github/issues/dreamsicle-io/create-component?style=flat-square)](https://github.com/dreamsicle-io/create-component/issues)
-[![GitHub license](https://img.shields.io/github/license/dreamsicle-io/create-component?style=flat-square)](https://github.com/dreamsicle-io/create-component/blob/main/LICENSE)
-
 `create-component` is a node command line tool that will scaffold a new multi-file component directory with a project's opinionated component structure, ideally containing just the right amount of starter code to get a developer started building.
 
 ## Usage
@@ -18,6 +15,8 @@ npx @dreamsicle.io/create-component [options] <name>
 All that is necessary to start using the tool is a component name `name`, which corresponds to a pascal-cased string that will serve as the component name, and a relative `--path`/`-p` that contains a `_Template` directory.
 
 ### 1. Install
+
+While it is possible to run this script without installing it by using `npx`, it is recomended to install the package to the project's development dependencies in order to be able to rely on the behavior of the script version to version.
 
 ```shell
 npm install --save-dev @dreamsicle.io/create-component
@@ -52,7 +51,9 @@ The scripts `name` arg can be passed through to the script when running it throu
 }
 ```
 
-### 3. Run the commands
+### 3. Run the scripts
+
+Given the scripts created in step #2 above, run them as follows ― being sure to provide a component name after the script name. These commands will clone the `_Template` directory in each of the corresponding project directories and will perform replacements both on the file names themselves as well as on the text content within the files.
 
 ```shell
 npm run create-component MyComponent
@@ -68,12 +69,16 @@ npm run create-page MyPage
 
 ## Replacements
 
+The following table documents which text nodes will be operated on when the `_Template` directory is cloned. Use these anywhere within the content. For file name replacements, consult the `Runs on file name` column of the table below.
+
 | Placeholder   | Replacement                     | Example           | Runs on file name |
 | ------------- | ------------------------------- | ----------------- | ----------------- |
 | `_Template`   | A pascal-cased component name   | `MyComponent`     | ✔️                |
 | `_template`   | A param-cased component name    | `my-component`    | ✔️                |
 | `_version`    | The root package's version      | `1.0.0`           | ❌                |
 | `_date`       | The date as `m/d/yyyy`          | `3/23/2022`       | ❌                |
+
+> **Note:** Version 2.0.0 will provide an API for adding custom replacements to the script.
 
 ## Logging
 
