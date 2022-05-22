@@ -14,19 +14,15 @@ npx @dreamsicle.io/create-component [options] <name>
 
 All that is necessary to start using the tool is a component name `name`, which corresponds to a pascal-cased string that will serve as the component name, and a relative `--path`/`-p` that contains a `_Template` directory.
 
-### 1. Install `@dreamsicle.io/create-component`
+### 1. Install
 
 ```shell
 npm install --save-dev @dreamsicle.io/create-component
 ```
 
-### 2. Create a `_Template` directory
+### 2. Set up scripts on `package.json`
 
-The `_Template` directory is what will be cloned and manipulated inorder to create the component structure.
-
-### 3. Set up scripts on `package.json`
-
-While it is possible to run this script without this step, it is recommended that you add scripts to your `package.json` file in order to make using this tool easier and faster. The app structure isn't likely to change in any given project often, so this will help in making the usage more consistent.
+While it is possible to run this script directly, it is recommended that you add scripts to your `package.json` file in order to make using this tool easier and faster. The app structure isn't likely to change in any given project often, so this will help in making the usage more consistent.
 
 The scripts `name` arg can be passed through to the script when running it through `npm`, therefore all that is recommended is to set up a script corresponding to each path that contains a `_Template` directory.
 
@@ -35,8 +31,11 @@ The scripts `name` arg can be passed through to the script when running it throu
 - root
 	- src
 		- components
+			- _Template
 		- partials
+			- _Template
 		- pages
+			- _Template
 
 **A great way to set up the app in this case would be to add the following to the `scripts` key on the project root's `package.json`.**
 
@@ -50,7 +49,7 @@ The scripts `name` arg can be passed through to the script when running it throu
 }
 ```
 
-**Now, all that is needed is to run the script on the command line, followed by the new component's name:**
+### 3. Run the commands
 
 ```shell
 npm run create-component MyComponent
@@ -62,7 +61,16 @@ npm run create-partal MyPartial
 npm run create-page MyPage
 ```
 
-> **Note:** Change `MyComponent` to the desired component name.
+> **Note:** Change `MyComponent`/`MyPartial`/`MyPage` to the desired component name.
+
+## Replacements
+
+| Placeholder   | Replacement                     | Example         | Runs on file name |
+| ------------- | ------------------------------- | --------------- | ----------------- |
+| `_Template`   | A pascal-cased component name   | MyComponent     | [x]               |
+| `_template`   | A param-cased component name    | my-component    | [x]               |
+| `_version`    | The root package's version      | 1.0.0           | []                |
+| `_date`       | The date as `m/d/yyyy`          | 3/23/2022       | []                |
 
 ## Logging
 
