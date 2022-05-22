@@ -1,6 +1,6 @@
 # Create Component
 
-`create-component` is a node command line tool that will scaffold a new multi-file component directory with a project's opinionated component structure, ideally containing just the right amount of starter code to get a developer started building.
+`create-component` is a node command line tool that will scaffold a new multi-file component directory with a project's often opinionated component structure, ideally containing just the right amount of starter code to get a developer started building. The difference between this generator and others is that the template is 100% controlled by the developers of the project.
 
 ## Usage
 
