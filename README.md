@@ -71,12 +71,12 @@ npm run create-page MyPage
 
 The following table documents which text nodes will be operated on when the `_Template` directory is cloned. Use these anywhere within the content. For file name replacements, consult the `Runs on file name` column of the table below.
 
-| Placeholder   | Replacement                     | Example           | Runs on file name |
-| ------------- | ------------------------------- | ----------------- | ----------------- |
-| `_Template`   | A pascal-cased component name   | `MyComponent`     | ✔️                |
-| `_template`   | A param-cased component name    | `my-component`    | ✔️                |
-| `_version`    | The root package's version      | `1.0.0`           | ❌                |
-| `_date`       | The date as `m/d/yyyy`          | `3/23/2022`       | ❌                |
+| Placeholder   | Replacement                     | Example           | Runs on content   | Runs on file name |
+| ------------- | ------------------------------- | ----------------- | ----------------- | ----------------- |
+| `_Template`   | A pascal-cased component name   | `MyComponent`     | ✔️                | ✔️               |
+| `_template`   | A param-cased component name    | `my-component`    | ✔️                | ✔️               |
+| `_version`    | The root package's version      | `1.0.0`           | ✔️                | ❌               |
+| `_date`       | The date as `m/d/yyyy`          | `3/23/2022`       | ✔️                | ❌               |
 
 > **Note:** Version 2.0.0 will provide an API for adding custom replacements to the script.
 
