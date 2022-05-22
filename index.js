@@ -31,7 +31,7 @@ const options = program.opts();
 
 // Report options errors and exit if necessary.
 if (!fs.existsSync(path.join(options.path, '_Template'))) {
-  console.error(chalk.red('Error: No template exists at this path\n'));
+  console.error(chalk.redBright('❌ Error: No template exists at this path\n'));
   program.help();
 }
 
@@ -41,7 +41,7 @@ const dest = path.join(options.path, args.name);
 
 // Check if the component already exists and exit if necessary.
 if (fs.existsSync(dest)) {
-  console.error(chalk.red('Error: There is already a component named "%s"\n'), args.name);
+  console.error(chalk.redBright('❌ Error: There is already a component named %s\n'), chalk.bold(chalk.yellow(args.name)));
   program.help();
 }
 
@@ -61,12 +61,31 @@ function walkDirectories(dirPath) {
 	return results;
 }
 
+function replaceInContent(content) {
+	return content.replace(/_Template/g, args.name)
+		.replace(/_template/g, paramCase(args.name))
+		.replace(/_version/g, packageData.version)
+		.replace(
+			/_date/g,
+			new Date().toLocaleDateString('en-US', {
+				year: 'numeric',
+				month: 'numeric',
+				day: 'numeric',
+			})
+		);
+}
+
+function replaceInFileName(fileName) {
+	return fileName.replace(/_Template/g, args.name)
+	.replace(/_template/g, paramCase(args.name));
+}
+
 function create() {
   // Announce start of creation.
-  console.info(chalk.bold('Creating component: "%s"\n'), args.name);
+  console.info(chalk.bold('⚡ Creating component: %s\n'), chalk.yellowBright(args.name));
   // Copy the template directory.
   fs.copySync(src, dest);
-  console.info(chalk.dim('Directory built: "%s"\n'), dest);
+  console.info(chalk.dim('📁 Directory cloned: %s\n'), chalk.yellow(dest));
 	// Get list of all file paths
 	const files = walkDirectories(dest);
   // Loop over the files array inorder to rename and replace
@@ -75,9 +94,7 @@ function create() {
 		// set up individual file paths and perform file name replacements.
 		const fileSrcDir = path.dirname(file);
 		const fileSrcName = path.basename(file);
-		const fileDestName = fileSrcName
-			.replace(/_Template/g, args.name)
-			.replace(/_template/g, paramCase(args.name));
+		const fileDestName = replaceInFileName(fileSrcName);
     const fileDest = path.join(fileSrcDir, fileDestName);
     // Ensure to Check if the file exists in this template.
     if (fs.existsSync(file)) {
@@ -85,26 +102,15 @@ function create() {
       fs.renameSync(file, fileDest);
       // Get the content of the file and replace the
       // placeholder text.
-      let content = fs
-        .readFileSync(fileDest, 'utf8')
-        .replace(/_Template/g, args.name)
-        .replace(/_template/g, paramCase(args.name))
-        .replace(/_version/g, packageData.version)
-        .replace(
-          /_date/g,
-          new Date().toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'numeric',
-            day: 'numeric',
-          })
-        );
+      let content = fs.readFileSync(fileDest, 'utf8');
+			content = replaceInContent(content);
       // Write the file back into place.
       fs.writeFile(fileDest, content, 'utf8');
-      console.info(chalk.dim('File built: "%s"'), fileDest);
+      console.info(chalk.dim('🔨 File built: %s'), chalk.yellow(fileDest));
     }
   });
   // Announce end of creation.
-  console.info(chalk.bold('\nCreated component "%s"'), args.name);
+  console.info(chalk.bold('\n🎉 Created component: %s'), chalk.yellowBright(args.name));
 }
 
 create();
