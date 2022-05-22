@@ -85,16 +85,18 @@ The following table documents which text nodes will be operated on when the `_Te
 The tool will log its progress and errors in the console, exiting on completion and fatal errors.
 
 ```shell
-Creating component: "MyComponent"
+⚡ Creating component: MyComponent
 
-Directory built: "src\components\MyComponent"
+📁 Directory cloned: examples\\components\\MyComponent
 
-File built: "src\components\MyComponent\MyComponent.tsx"
-File built: "src\components\MyComponent\MyComponent.scss"       
-File built: "src\components\MyComponent\MyComponent.stories.tsx"
-File built: "src\components\MyComponent\MyComponent.test.tsx"
+🔨 File built: examples\\components\\MyComponent\\utils\\my-component-utils.ts
+🔨 File built: examples\\components\\MyComponent\\utils\\MyComponent.utils.ts
+🔨 File built: examples\\components\\MyComponent\\MyComponent.scss
+🔨 File built: examples\\components\\MyComponent\\MyComponent.stories.tsx
+🔨 File built: examples\\components\\MyComponent\\MyComponent.test.tsx
+🔨 File built: examples\\components\\MyComponent\\MyComponent.tsx
 
-Created component "MyComponent"
+🎉 Created component: MyComponent
 ```
 
 > **Note:** The above is what would be created and logged given a `src/components/_Template` directory with the following files: `_Template_.tsx`, `_Template_.scss`, `_Template_.stories.tsx`, and `_Template_.test.tsx`.
