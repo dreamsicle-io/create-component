@@ -87,14 +87,14 @@ The tool will log its progress and errors in the console, exiting on completion 
 ```shell
 ⚡ Creating component: MyComponent
 
-📁 Directory cloned: examples\\components\\MyComponent
+📁 Directory cloned: examples/components/MyComponent
 
-🔨 File built: examples\\components\\MyComponent\\utils\\my-component-utils.ts
-🔨 File built: examples\\components\\MyComponent\\utils\\MyComponent.utils.ts
-🔨 File built: examples\\components\\MyComponent\\MyComponent.scss
-🔨 File built: examples\\components\\MyComponent\\MyComponent.stories.tsx
-🔨 File built: examples\\components\\MyComponent\\MyComponent.test.tsx
-🔨 File built: examples\\components\\MyComponent\\MyComponent.tsx
+🔨 File built: examples/components/MyComponent/utils/my-component-utils.ts
+🔨 File built: examples/components/MyComponent/utils/MyComponent.utils.ts
+🔨 File built: examples/components/MyComponent/MyComponent.scss
+🔨 File built: examples/components/MyComponent/MyComponent.stories.tsx
+🔨 File built: examples/components/MyComponent/MyComponent.test.tsx
+🔨 File built: examples/components/MyComponent/MyComponent.tsx
 
 🎉 Created component: MyComponent
 ```
