@@ -6,7 +6,7 @@
 
 From the project directory root, fire the `create-component` command, pointing to any directory that contains a `_Template` directory.
 
-```shell 
+``` 
 npx @dreamsicle.io/create-component [options] <name>
 ```
 
