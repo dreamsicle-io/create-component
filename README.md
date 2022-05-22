@@ -65,12 +65,12 @@ npm run create-page MyPage
 
 ## Replacements
 
-| Placeholder   | Replacement                     | Example         | Runs on file name |
-| ------------- | ------------------------------- | --------------- | ----------------- |
-| `_Template`   | A pascal-cased component name   | MyComponent     | ✔️                |
-| `_template`   | A param-cased component name    | my-component    | ✔️                |
-| `_version`    | The root package's version      | 1.0.0           | ❌                |
-| `_date`       | The date as `m/d/yyyy`          | 3/23/2022       | ❌                |
+| Placeholder   | Replacement                     | Example           | Runs on file name |
+| ------------- | ------------------------------- | ----------------- | ----------------- |
+| `_Template`   | A pascal-cased component name   | `MyComponent`     | ✔️                |
+| `_template`   | A param-cased component name    | `my-component`    | ✔️                |
+| `_version`    | The root package's version      | `1.0.0`           | ❌                |
+| `_date`       | The date as `m/d/yyyy`          | `3/23/2022`       | ❌                |
 
 ## Logging
 
