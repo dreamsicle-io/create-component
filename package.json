@@ -1,6 +1,6 @@
 {
 	"name": "@dreamsicle.io/create-component",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"type": "module",
 	"main": "index.js",
 	"author": "Dreamsicle",
