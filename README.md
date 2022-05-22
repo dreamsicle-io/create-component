@@ -32,14 +32,11 @@ The scripts `name` arg can be passed through to the script when running it throu
 
 **Setting up scripts is simple ― consider an application with the following structure:**
 
-```
-root
-― src
-―― components
-―― partials
-―― pages
-
-```
+- root
+	- src
+		- components
+		- partials
+		- pages
 
 **A great way to set up the app in this case would be to add the following to the `scripts` key on the project root's `package.json`.**
 
