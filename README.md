@@ -61,7 +61,7 @@ Given the scripts created in step #2 above, run them as follows ― being sure t
 npm run create-component MyComponent
 ```
 ```shell
-npm run create-partal MyPartial
+npm run create-partial MyPartial
 ```
 ```shell
 npm run create-page MyPage
