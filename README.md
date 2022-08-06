@@ -99,7 +99,7 @@ The tool will log its progress and errors in the console, exiting on completion 
 🎉 Created component: MyComponent
 ```
 
-> **Note:** The above is what would be created and logged given a provided component name of `MyComponent` and a `src/components/_Template` directory with the following files: `_Template_.tsx`, `_Template_.scss`, `_Template_.stories.tsx`, and `_Template_.test.tsx`.
+> **Note:** The above is what would be created and logged given a provided component name of `MyComponent` and a `src/components/_Template` directory with the following files: `_Template.tsx`, `_Template.scss`, `_Template.stories.tsx`, and `_Template.test.tsx`.
 
 ## Help 
 
