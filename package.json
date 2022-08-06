@@ -17,7 +17,6 @@
 		"create-component": "index.js"
 	},
 	"scripts": {
-		"deploy": "npm publish --access public",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"create-component-example": "node index.js -p examples/components"
 	},
