@@ -1,5 +1,3 @@
-# Dependencies
 node_modules/
-
 examples/components/*
 !examples/components/_Template/
