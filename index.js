@@ -104,7 +104,7 @@ program
 	// Construct arguments.
 	.argument(
 		'<name>',
-		'The final directory name',
+		'The name of the component',
 		(value) => {
 			const text = zod.string().trim().safeParse(value).data || '';
 			return pascalCase(text);
