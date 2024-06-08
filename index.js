@@ -120,7 +120,7 @@ program
 	)
 	.option(
 		'-o, --outputPath [path]',
-		'The relative path where the component should be placed',
+		'The relative path where the component should be placed, if different from the template path',
 		(value) => {
 			return zod.string().trim().safeParse(value).data || '';
 		}
