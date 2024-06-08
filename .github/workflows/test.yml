@@ -43,8 +43,8 @@ jobs:
         id: lint
         run: npm run lint
 
-      # Runs a test component creation with the path set to `tests`
-      # and the `verbose` option to true for debugging.
+      # Runs a test component creation with the `verbose`
+      # option to true for debugging.
       - name: Create Component
         id: create_component
         run: npm test TestComponent -- -v
