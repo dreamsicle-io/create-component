@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 /**
  * This tests a nested unmodified file.
  */
