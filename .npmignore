@@ -16,3 +16,7 @@ node_modules/
 
 examples/
 tests/
+
+# Logs
+
+logs/
