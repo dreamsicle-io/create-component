@@ -139,7 +139,7 @@ program
 		tmpPath = path.resolve(tmpDirPath, componentName);
 		destPath = path.resolve(options.outputPath || options.path, componentName);
 		// Run creation.
-		run();
+		create();
 	});
 
 // Parse the CLI options and store them in the program.
@@ -231,7 +231,7 @@ function replaceInFileName(fileName) {
 		.replace(/_template/g, kebabCase(componentName));
 }
 
-function run() {
+function create() {
 	try {
 		validate();
 		logStart();
