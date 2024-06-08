@@ -211,18 +211,16 @@ function walkDirectories(dirPath) {
 }
 
 function replaceInContent(content) {
+	const date = new Date().toLocaleDateString('en-US', {
+		year: 'numeric',
+		month: 'numeric',
+		day: 'numeric',
+	});
 	return content
 		.replace(/_Template/g, componentName)
 		.replace(/_template/g, kebabCase(componentName))
 		.replace(/_version/g, userPkg.version)
-		.replace(
-			/_date/g,
-			new Date().toLocaleDateString('en-US', {
-				year: 'numeric',
-				month: 'numeric',
-				day: 'numeric',
-			})
-		);
+		.replace(/_date/g, date);
 }
 
 function replaceInFileName(fileName) {
