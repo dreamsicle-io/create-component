@@ -12,7 +12,7 @@ npx @dreamsicle.io/create-component [options] <name>
 
 ## Getting started
 
-All that is necessary to start using the tool is a component name `name`, which corresponds to a pascal-cased string that will serve as the component name, and a relative `--path`/`-p` that contains a `_Template` directory.
+All that is necessary to start using the tool is a component name `name`, which corresponds to a pascal-cased string that will serve as the component name, and a relative `--path`/`-p` that contains a `_Template` directory (or other directory as specified by the `-t`/`--templateDir` option).
 
 ### 1. Install
 
@@ -26,7 +26,7 @@ npm install --save-dev @dreamsicle.io/create-component
 
 While it is possible to run this script directly, it is recommended that you add scripts to your `package.json` file in order to make using this tool easier and faster. The app structure isn't likely to change in any given project often, so this will help in making the usage more consistent.
 
-The scripts `name` arg can be passed through to the script when running it through `npm`, therefore all that is recommended is to set up a script corresponding to each path that contains a `_Template` directory.
+The scripts `name` arg can be passed through to the script when running it through `npm`, therefore all that is recommended is to set up a script corresponding to each path that contains a `_Template` directory (or other directory as specified by the `-t`/`--templateDir` option).
 
 **Setting up scripts is simple ― consider an application with the following structure:**
 
@@ -55,6 +55,8 @@ The scripts `name` arg can be passed through to the script when running it throu
 
 > **Note:** If your templates live outside of the directory you want them to be created in, use the `-o` or `--outputPath` option to set the output path.
 
+> **Note:** If you want the template directory to have a different name than `_Template` for stylistic or conflict reasons, use the `-t`/`--templateDir` option.
+
 ### 3. Run the scripts
 
 Given the scripts created in step #2 above, run them as follows ― being sure to provide a component name after the script name. These commands will clone the `_Template` directory in each of the corresponding project directories and will perform replacements both on the file names themselves as well as on the text content within the files.
@@ -82,7 +84,9 @@ The following table documents which text nodes will be operated on when the `_Te
 | `_version`    | The root package's version      | `1.0.0`           | ✔️                | ❌               |
 | `_date`       | The date as `m/d/yyyy`          | `3/23/2022`       | ✔️                | ❌               |
 
-> **Note:** Version 2.0.0 will provide an API for adding custom replacements to the script.
+> **Note:** The `_Template` and `_template` replacements are not affected by the `-t`/`--templateDir` option.
+
+> **Coming soon:** Version 2.0.0 will provide an API for adding custom replacements to the script.
 
 ## Logging
 
@@ -114,17 +118,18 @@ npx @dreamsicle.io/create-component --help
 **The above would ouput the following help information:**
 
 ```
-Usage: npx @dreamsicle.io/create-component [options] <name>
+Usage: @dreamsicle.io/create-component [options] <name>
 
 Create a templated component structure.
 
 Arguments:
-  name                     The name of the component
+  name                        The name of the component
 
 Options:
-  -V, --version            output the version number
-  -p, --path <path>        The relative path where the template to be used lives
-  -o, --outputPath [path]  The relative path where the component should be placed, if different from the template path
-  -v, --verbose            Output extra information to the console (default: false)
-  -h, --help               display help for command
+  -V, --version               output the version number
+  -p, --path <string>         The relative path where the template to be used lives
+  -o, --outputPath [string]   The relative path where the component should be placed, if different from the template path
+  -t, --templateDir <string>  The name of the template directory (default: "_Template")
+  -v, --verbose               Output extra information to the console (default: false)
+  -h, --help                  display help for command
 ```
