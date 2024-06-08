@@ -43,8 +43,8 @@ jobs:
         id: lint
         run: npm run lint
 
-      # Runs a test theme creation with all options set to skip prompt. Note we also set
-      # the path to `tests` and enable the `verbose` option for debugging.
-      - name: Create Theme
-        id: create_theme
-        run: npm test TestComponent -- -p "examples/components"
+      # Runs a test component creation with the path set to `tests`
+      # and the `verbose` option to true for debugging.
+      - name: Create Component
+        id: create_component
+        run: npm test TestComponent -- -v
