@@ -15,7 +15,7 @@ export interface State {}
 /**
  * Components / _Template
  *
- * Describe the `_Template` component's use cases here.
+ * Describe the custom `_Template` component's use cases here.
  * Include what it does, why it was developed, and why
  * it's awesome.
  *

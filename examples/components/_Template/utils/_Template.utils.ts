@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 /**
  * This is a test `_Template` util class file.
  * 

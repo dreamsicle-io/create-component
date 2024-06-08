@@ -13,6 +13,7 @@ import zod from 'zod';
  * @typedef {object} Options
  * @property {string} path
  * @property {string} outputPath
+ * @property {string} templateDir
  * @property {boolean} verbose
  */
 
@@ -99,7 +100,7 @@ let options;
 const program = new Command();
 program
 	.version(pkg.version)
-	.name('npx @dreamsicle.io/create-component')
+	.name('@dreamsicle.io/create-component')
 	.description('Create a templated component structure.')
 	// Construct arguments.
 	.argument(
@@ -112,18 +113,26 @@ program
 	)
 	// Construct options.
 	.option(
-		'-p, --path <path>',
+		'-p, --path <string>',
 		'The relative path where the template to be used lives',
 		(value) => {
 			return zod.string().trim().safeParse(value).data || '';
 		}
 	)
 	.option(
-		'-o, --outputPath [path]',
+		'-o, --outputPath [string]',
 		'The relative path where the component should be placed, if different from the template path',
 		(value) => {
 			return zod.string().trim().safeParse(value).data || '';
 		}
+	)
+	.option(
+		'-t, --templateDir <string>',
+		'The name of the template directory',
+		(value) => {
+			return zod.string().trim().safeParse(value).data || '';
+		},
+		'_Template'
 	)
 	.option(
 		'-v, --verbose',
@@ -135,7 +144,7 @@ program
 		// Initialize args and options.
 		options = { ...opts };
 		componentName = name;
-		srcPath = path.resolve(options.path, '_Template');
+		srcPath = path.resolve(options.path, options.templateDir);
 		tmpPath = path.resolve(tmpDirPath, componentName);
 		destPath = path.resolve(options.outputPath || options.path, componentName);
 		// Run creation.
@@ -254,7 +263,6 @@ function validate() {
 	}
 	// Check if the component directory already exists.
 	if (fs.existsSync(destPath)) {
-		
 		throw new Error(`There is already a directory at "${path.relative(cwd, destPath)}"`);
 	}
 }

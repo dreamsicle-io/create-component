@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 /**
  * This tests an unmodified file.
  */
