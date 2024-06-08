@@ -359,7 +359,7 @@ function logSuccess() {
 		title: 'Component created',
 		description: `Created "${componentName}" in ${path.relative(cwd, destPath)}`,
 		emoji: '🚀',
-		padding: 'top',
+		padding: ! options.verbose ? 'top' : undefined,
 		verbose: options.verbose,
 		dataLabel: 'Component files',
 		data: walkDirectories(destPath).map((file) => path.relative(destPath, file)),
