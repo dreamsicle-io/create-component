@@ -99,7 +99,7 @@ let options;
 const program = new Command();
 program
 	.version(pkg.version)
-	.name('npx @dreamsicle.io/create-component')
+	.name('@dreamsicle.io/create-component')
 	.description('Create a templated component structure.')
 	// Construct arguments.
 	.argument(
@@ -254,7 +254,6 @@ function validate() {
 	}
 	// Check if the component directory already exists.
 	if (fs.existsSync(destPath)) {
-		
 		throw new Error(`There is already a directory at "${path.relative(cwd, destPath)}"`);
 	}
 }
