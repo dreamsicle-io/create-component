@@ -1,3 +1,15 @@
+# Deps
+
 node_modules/
-examples/components/*
-!examples/components/_Template/
+
+# Tests
+
+tests/
+
+# Temp
+
+tmp/
+
+# Logs
+
+logs/

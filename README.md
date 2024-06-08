@@ -53,6 +53,8 @@ The scripts `name` arg can be passed through to the script when running it throu
 }
 ```
 
+> **Note:** If your templates live outside of the directory you want them to be created in, use the `-o` or `--outputPath` option to set the output path.
+
 ### 3. Run the scripts
 
 Given the scripts created in step #2 above, run them as follows ― being sure to provide a component name after the script name. These commands will clone the `_Template` directory in each of the corresponding project directories and will perform replacements both on the file names themselves as well as on the text content within the files.
@@ -112,12 +114,17 @@ npx @dreamsicle.io/create-component --help
 **The above would ouput the following help information:**
 
 ```
-Usage: npx @dreamsicle.io/create-component [options] <name>  
+Usage: npx @dreamsicle.io/create-component [options] <name>
 
-Create a React component in the appropriate components directory.
+Create a templated component structure.
+
+Arguments:
+  name                     The name of the component
 
 Options:
-  -V, --version      output the version number
-  -p, --path <path>  The relative path where the template to be used lives.
-  -h, --help         display help for command
+  -V, --version            output the version number
+  -p, --path <path>        The relative path where the template to be used lives
+  -o, --outputPath [path]  The relative path where the component should be placed, if different from the template path
+  -v, --verbose            Output extra information to the console (default: false)
+  -h, --help               display help for command
 ```

@@ -1,5 +1,22 @@
+# Config
+
+.github/
+.vscode/
 .editorconfig
+.eslintrc
 .gitignore
 .npmignore
-README.md
+.nvmrc
+
+# Deps
+
+node_modules/
+
+# Tests
+
 examples/
+tests/
+
+# Logs
+
+logs/
