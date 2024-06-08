@@ -5,6 +5,6 @@
  * 
  * @since _version Added on `_date`
  */
-export function util() {
-	console.log(`Hello from _template-utils.ts!`);
+export function _TemplateUtil() {
+	console.log(`Hello from the _Template utils file!`);
 }
