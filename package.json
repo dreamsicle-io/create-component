@@ -36,6 +36,7 @@
 	},
 	"scripts": {
 		"test": "node index.js -p examples/components -o tests/components",
+		"test-multi-file": "node index.js -p examples/multi-file/partials examples/multi-file/scripts examples/multi-file/styles -o tests/multi-file",
 		"help": "node index.js -h",
 		"lint": "eslint .",
 		"fix": "npm pkg fix && eslint --fix .",
